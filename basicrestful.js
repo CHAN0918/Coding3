@@ -127,6 +127,15 @@ app.post('/', (req, res) => {
   
 });
 
+app.post('/', (req, res) => {
+  let data = req.body
+  res.send(login(
+  data.username,
+  data.password
+  ))
+  
+});
+
 //create a GET route
 app.get('/', (req, res) => {
   res.send('Hello World!')

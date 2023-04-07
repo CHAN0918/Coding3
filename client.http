@@ -2,11 +2,11 @@ GET http://localhost:3000/
 
 ###
 
-POST  http://localhost:3000/login
+POST  http://localhost:3000/
 Content-Type: application/json
 
 {
-    "name": "user3",
+    "username": "user1",
     "password": "user3@76865123"
 }
 
