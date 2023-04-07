@@ -119,7 +119,10 @@ app.post('/', (req, res) => {
   let data = req.body
   res.send(register(
     data.username,
-    data.password
+    data.password,
+    data.phone,
+    data.email,
+    data.name
   ))
   
 });
