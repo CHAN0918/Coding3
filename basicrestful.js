@@ -9,6 +9,51 @@ const port = 3000
 
 let origin =[{username: "user1", password: "user1@123"}]
 
+//enable json body parsing
+app.use(express.json());
+
+//login with express
+app.post('/', (req, res) => {
+  let data = req.body
+  res.send(login(
+  data.username,
+  data.password
+  ));
+  
+});
+
+//register with express
+app.post('/register', (req, res) => {
+  let data = req.body
+  res.send(register(
+    data.username,
+    data.password,
+    data.name,
+    data.email,
+    data.phone
+  ));
+  
+});
+
+//create a GET route
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.post('/', (req, res) => {
+  res.send('Post request')
+})
+
+//create another GET route
+app.get('/bye', (req, res) => {
+    res.send('Bye bye World!')
+  })
+
+  //start the server
+app.listen(port, () => {
+  console.log(`Example app listening on port at http://localhost:${port}`)    
+})
+
 let dbusers =[
   {
       username: "chan",
@@ -33,27 +78,6 @@ let dbusers =[
   }
   ]
   
-  //check the database using username
-  
-  function login(username, password)
-  {
-      let pwd = dbusers.find(element=> element.password == password)
-      if(pwd)
-      {
-      if(pwd.username==username ){
-      console.log("Your username is matched with your password.")
-      }
-      else{
-          console.log("Your username is not matched with true password.")
-      }
-  }
-      
-      else{
-      console.log("Error exist.")
-      }
-      
-  }
-  
   //confirmation for login 
   function login(username, password){
       console.log("Someone try to login with", username, "with", password)
@@ -72,20 +96,9 @@ let dbusers =[
       }
   }
   
-  //try login with username
-  //try to login -> call function
-  //login("then","zenyang_....")                //Result = undefined data
-  //console.log("           ")                  //making space between each line
-  //login("chan","zenyang_....")              //Result = data found and matched
-  
-  
-  //try login with password matched or not
-  //console.log(login("chan", "zenyang_...."))    //-Correct result
-  //console.log(login("chan", "Tp....."))         //-Wrong password
-  //console.log(login("TL", "zenyang_...."))         //-Wrong username
-  
-  
   function register(newusername, newpassword, newname, newemail, newphone){
+
+    dbusers.find(element => {console.log(element)}) //find element in array
   
       dbusers.push({
           username: newusername,
@@ -96,7 +109,7 @@ let dbusers =[
       })  
   }
 
-app.post('/login',(req, res) => {
+/*app.post('/login',(req, res) => {
   //get the username and password from the request body
   const {username, password} = req.body
 
@@ -110,47 +123,4 @@ app.post('/login',(req, res) => {
   else{
     res.send({error: "User not found"});
   }
-})
-
-//enable json body parsing
-app.use(express.json());
-
-app.post('/', (req, res) => {
-  let data = req.body
-  res.send(register(
-    data.username,
-    data.password,
-    data.phone,
-    data.email,
-    data.name
-  ))
-  
-});
-
-app.post('/', (req, res) => {
-  let data = req.body
-  res.send(login(
-  data.username,
-  data.password
-  ))
-  
-});
-
-//create a GET route
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.post('/', (req, res) => {
-  res.send('Post request')
-})
-
-//create another GET route
-app.get('/bye', (req, res) => {
-    res.send('Bye bye World!')
-  })
-
-  //start the server
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:3000/`)    //${port}`
-})
+})*/
