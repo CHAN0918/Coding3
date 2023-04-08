@@ -49,11 +49,6 @@ app.get('/bye', (req, res) => {
     res.send('Bye bye World!')
   })
 
-  //start the server
-app.listen(port, () => {
-  console.log(`Example app listening on port at http://localhost:${port}`)    
-})
-
 let dbusers =[
   {
       username: "chan",
@@ -108,6 +103,30 @@ let dbusers =[
           phone: newphone,
       })  
   }
+
+//Change user's password into bcrypt form
+const bcrypt = require('bcrypt');
+const saltRounds =10;
+
+app.post('/hash', async (req,res) => {
+  const {username, password} = req.body
+  const hash = await bcrypt.hash(password, saltRounds)
+
+  dbusers.push(
+  {
+    username,
+    password: hash
+  })
+
+    console.log(dbusers)
+
+    res.send('success')
+})
+
+  //start the server
+  app.listen(port, () => {
+    console.log(`Example app listening on port at http://localhost:${port}`)    
+  })
 
 /*app.post('/login',(req, res) => {
   //get the username and password from the request body
