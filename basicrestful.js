@@ -13,7 +13,7 @@ let origin =[{username: "user1", password: "user1@123"}]
 app.use(express.json());
 
 //login with express
-app.post('/', (req, res) => {
+app.post('/login', (req, res) => {
   let data = req.body
   res.send(login(
   data.username,
@@ -109,13 +109,16 @@ const bcrypt = require('bcrypt');
 const saltRounds =10;
 
 app.post('/hash', async (req,res) => {
-  const {username, password} = req.body
+  const {username, password, name, email, phone} = req.body
   const hash = await bcrypt.hash(password, saltRounds)
 
   dbusers.push(
   {
     username,
-    password: hash
+    password: hash,
+    name,
+    email,
+    phone
   })
 
     console.log(dbusers)
