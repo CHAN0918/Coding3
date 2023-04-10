@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZm9vYmFyIiwiaWF0IjoxNjgxMTEwMDA4LCJleHAiOjE2ODExMTM2MDh9.2uuWwlJlbW60mwUR1S-synesg23mJ52c_0d5uwviq5A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZm9vYmFyIiwiaWF0IjoxNjgxMTExMDM5LCJleHAiOjE2ODExMTQ2Mzl9.7DG8VHZrgFV7WAzju9ZIvBPFeH6NolV_E3t8PQbmZUc
 
 ###
 
@@ -32,11 +32,8 @@ POST http://localhost:3000/hash
 Content-Type: application/json
 
 {
-    "username": "thor",
-    "password": "Th....",
-    "name": "Thor",
-    "email": "thor@utem.edu.my",
-    "phone": "011-85496211"
+    "username": "chan",
+    "password": "zenyang_...."
 }
 
 ###
@@ -44,7 +41,6 @@ POST http://localhost:3000/compare
 Content-Type: application/json
 
 {
-    "username": "chan",
     "password": "zenyang_...."
 }
 

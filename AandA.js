@@ -40,9 +40,11 @@ app.post('/register', (req, res) => {
 });
 
 //create a GET route
-app.get('/',verifyToken, (req, res) => {
+app.get('/', verifyToken, (req, res) => {
   /*res.send('Hello World!')*/
   console.log(req.user)
+
+  res.send('Hello World!')
 })
 
 app.post('/', (req, res) => {
@@ -133,8 +135,8 @@ app.post('/hash', async (req,res) => {
 
 //To generate JWT Token
 function generateToken(userProfile){
-    return jwt.sign({
-        data: 'foobar'},
+    return jwt.sign({userProfile
+        },
         'secret', {expiresIn: 60 * 60}); //secret is server password
 
 }
@@ -150,11 +152,11 @@ function verifyToken(req, res, next){
         res.send("invalid token.")
       }
 
-        console.log(decoded)  //bar
+        /*console.log(decoded)  //bar*/
         req.user = decoded
         next()
 
-    })
+    });
 }
 
   //start the server
