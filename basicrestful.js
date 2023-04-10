@@ -134,10 +134,8 @@ app.post('/hash', async (req,res) => {
 /*app.post('/login',(req, res) => {
   //get the username and password from the request body
   const {username, password} = req.body
-
   //find the user in the database
   const user = dbusers.find(user => user.username === username && user.password === password)
-
   if(user)
   {
     res.send(user);

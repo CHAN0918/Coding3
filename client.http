@@ -1,7 +1,9 @@
 GET http://localhost:3000/
 
 ###
+GET http://localhost:3000/bye
 
+###
 POST  http://localhost:3000/login
 Content-Type: application/json
 
@@ -9,6 +11,10 @@ Content-Type: application/json
     "username": "chan",
     "password": "zenyang_...."
 }
+
+###
+GET http://localhost:3000/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZm9vYmFyIiwiaWF0IjoxNjgxMTEwMDA4LCJleHAiOjE2ODExMTM2MDh9.2uuWwlJlbW60mwUR1S-synesg23mJ52c_0d5uwviq5A
 
 ###
 
@@ -34,7 +40,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/hash
+POST http://localhost:3000/compare
 Content-Type: application/json
 
 {
