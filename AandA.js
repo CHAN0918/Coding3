@@ -40,15 +40,17 @@ app.post('/register', (req, res) => {
 });
 
 //create a GET route
-app.get('/', verifyToken, (req, res) => {
+app.get('/auto', verifyToken, (req, res) => {
   /*res.send('Hello World!')*/
   console.log(req.user)
 
   res.send('Hello World!')
 })
 
-app.post('/', (req, res) => {
-  res.send('Post request')
+app.get('/', (req,res) => {
+
+  res.send('Hello world')
+
 })
 
 //create another GET route
