@@ -13,8 +13,26 @@ let origin =[{username: "user1", password: "user1@123"}]
 app.use(express.json());
 
 //login with express
-app.post('/login', (req, res) => {
+app.post('/login', async(req, res) => {
   let data = req.body
+
+  const {username, password} = req.body
+    const search = dbusers.find(user => user.username == username)
+
+    if(!search)
+    {
+      res.send("Username not found")
+    }
+
+    const valid = await bcrypt.compare(password, user.password)
+    
+    if(!valid){
+      res.send("Wrong password")
+    }
+    console.log(search)
+    res.send("login successful")
+
+  
   res.send(login(
   data.username,
   data.password
@@ -93,6 +111,10 @@ let dbusers =[
   
   function register(newusername, newpassword, newname, newemail, newphone){
 
+    if(match){
+      res.send("Username already taken.")
+     }
+
     dbusers.find(element => {console.log(element)}) //find element in array
   
       dbusers.push({
@@ -124,6 +146,7 @@ app.post('/hash', async (req,res) => {
     console.log(dbusers)
 
     res.send('success')
+
 })
 
   //start the server
