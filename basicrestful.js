@@ -16,7 +16,7 @@ app.use(express.json());
 app.post('/login', async(req, res) => {
   let data = req.body
 
-  const {username, password} = req.body
+  /*const {username, password} = req.body
     const search = dbusers.find(user => user.username == username)
 
     if(!search)
@@ -36,8 +36,11 @@ app.post('/login', async(req, res) => {
   res.send(login(
   data.username,
   data.password
-  ));
-  
+  ));*/
+  res.send(login(
+  data.username,
+  data.password));
+
 });
 
 //register with express
@@ -111,9 +114,9 @@ let dbusers =[
   
   function register(newusername, newpassword, newname, newemail, newphone){
 
-    if(match){
+    /*if(match){
       res.send("Username already taken.")
-     }
+     }*/
 
     dbusers.find(element => {console.log(element)}) //find element in array
   
@@ -167,3 +170,27 @@ app.post('/hash', async (req,res) => {
     res.send({error: "User not found"});
   }
 })*/
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://ZenYang:<password>@cluster0.st3ynq8.mongodb.net/?retryWrites=true&w=majority";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);

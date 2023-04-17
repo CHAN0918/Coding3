@@ -13,9 +13,8 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZm9vYmFyIiwiaWF0IjoxNjgxMTExMDM5LCJleHAiOjE2ODExMTQ2Mzl9.7DG8VHZrgFV7WAzju9ZIvBPFeH6NolV_E3t8PQbmZUc
-
+GET http://localhost:3000/auto
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZSI6eyJ1c2VybmFtZSI6ImNoYW4iLCJwYXNzd29yZCI6InplbnlhbmdfLi4uLiIsIm5hbWUiOiJDaGFuIFplbiBZYW5nIiwiZW1haWwiOiJjaGFuQHV0ZW0uZWR1Lm15IiwicGhvbmUiOiIwMTEtMTY3Nzk2OTYifSwiaWF0IjoxNjgxMTcyODgxLCJleHAiOjE2ODExNzY0ODF9.y2ifFf8wGM0768Wesb8ZRQ5QwVeZEgA7LQwrNgM-Bos
 ###
 
 POST  http://localhost:3000/register
