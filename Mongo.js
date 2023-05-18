@@ -158,7 +158,7 @@ app.post('/hash', async (req,res) => {
   })
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://ZenYang:<password>@cluster0.st3ynq8.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://ZenYang:ZenYang_12345@cluster0.st3ynq8.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -176,7 +176,7 @@ async function run() {
     collection("users").find({"username":"soo"}).
     toArray()
     insertOne({
-      "username": "Soo2:",
+      "username": "Soo2",
       "password": "wen1234"
     })
     console.log(user);
